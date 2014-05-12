@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.jax.heim/src-gen" editDirectory="/de.jax.heim.edit/src"
+    editorDirectory="/de.jax.heim.editor/src" modelPluginID="de.jax.heim" forceOverwrite="true"
+    modelName="Regelsprache" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="de.jax.heim.edit"
+    editorPluginID="de.jax.heim.editor" runtimeVersion="2.10">
+  <genPackages prefix="Regelsprache" basePackage="de.jax.heim" disposableProviderFactory="true"
+      fileExtensions="regeln" ecorePackage="Regelsprache.ecore#/">
+    <genClasses ecoreClass="Regelsprache.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Model/deklarationen"/>
+    </genClasses>
+    <genClasses ecoreClass="Regelsprache.ecore#//Deklaration"/>
+    <genClasses ecoreClass="Regelsprache.ecore#//Geraet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Geraet/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Geraet/zustaende"/>
+    </genClasses>
+    <genClasses ecoreClass="Regelsprache.ecore#//Zustand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Zustand/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Regelsprache.ecore#//Regel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Regel/wenn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Regel/dann"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,27 @@
+grammar de.jax.heim.Regelsprache with org.eclipse.xtext.common.Terminals
+
+generate regelsprache "http://www.jax.de/heim/Regelsprache"
+
+Model:
+	deklarationen+=Deklaration*;
+	
+Deklaration :
+	Regel | Geraet
+;
+
+Geraet:
+	name=ID 'kann' (zustaende+=Zustand (',' zustaende+=Zustand)*)?
+;
+
+Zustand:
+	name=ID
+;
+
+Regel:
+	'Wenn' wenn=QualifiedName 'dann' dann=QualifiedName
+;
+
+QualifiedName :
+    ID ('.' ID)*
+;
+
