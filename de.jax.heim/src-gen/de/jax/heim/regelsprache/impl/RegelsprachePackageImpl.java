@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.xtext.xbase.XbasePackage;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -107,6 +109,9 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
     RegelsprachePackageImpl theRegelsprachePackage = (RegelsprachePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RegelsprachePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RegelsprachePackageImpl());
 
     isInited = true;
+
+    // Initialize simple dependencies
+    XbasePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theRegelsprachePackage.createPackageContents();
@@ -304,6 +309,9 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
     setNsPrefix(eNS_PREFIX);
     setNsURI(eNS_URI);
 
+    // Obtain other dependent packages
+    XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
+
     // Create type parameters
 
     // Set bounds for type parameters
@@ -327,7 +335,7 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
 
     initEClass(regelEClass, Regel.class, "Regel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRegel_Wenn(), this.getZustand(), null, "wenn", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRegel_Dann(), this.getZustand(), null, "dann", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRegel_Dann(), theXbasePackage.getXExpression(), null, "dann", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

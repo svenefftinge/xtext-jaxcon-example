@@ -7,11 +7,14 @@ import de.jax.heim.regelsprache.RegelsprachePackage;
 import de.jax.heim.regelsprache.Zustand;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,14 +43,14 @@ public class RegelImpl extends DeklarationImpl implements Regel
   protected Zustand wenn;
 
   /**
-   * The cached value of the '{@link #getDann() <em>Dann</em>}' reference.
+   * The cached value of the '{@link #getDann() <em>Dann</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDann()
    * @generated
    * @ordered
    */
-  protected Zustand dann;
+  protected XExpression dann;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,27 +121,7 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public Zustand getDann()
-  {
-    if (dann != null && dann.eIsProxy())
-    {
-      InternalEObject oldDann = (InternalEObject)dann;
-      dann = (Zustand)eResolveProxy(oldDann);
-      if (dann != oldDann)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RegelsprachePackage.REGEL__DANN, oldDann, dann));
-      }
-    }
-    return dann;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Zustand basicGetDann()
+  public XExpression getDann()
   {
     return dann;
   }
@@ -148,12 +131,53 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDann(Zustand newDann)
+  public NotificationChain basicSetDann(XExpression newDann, NotificationChain msgs)
   {
-    Zustand oldDann = dann;
+    XExpression oldDann = dann;
     dann = newDann;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RegelsprachePackage.REGEL__DANN, oldDann, dann));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RegelsprachePackage.REGEL__DANN, oldDann, newDann);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDann(XExpression newDann)
+  {
+    if (newDann != dann)
+    {
+      NotificationChain msgs = null;
+      if (dann != null)
+        msgs = ((InternalEObject)dann).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RegelsprachePackage.REGEL__DANN, null, msgs);
+      if (newDann != null)
+        msgs = ((InternalEObject)newDann).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RegelsprachePackage.REGEL__DANN, null, msgs);
+      msgs = basicSetDann(newDann, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RegelsprachePackage.REGEL__DANN, newDann, newDann));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RegelsprachePackage.REGEL__DANN:
+        return basicSetDann(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -170,8 +194,7 @@ public class RegelImpl extends DeklarationImpl implements Regel
         if (resolve) return getWenn();
         return basicGetWenn();
       case RegelsprachePackage.REGEL__DANN:
-        if (resolve) return getDann();
-        return basicGetDann();
+        return getDann();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -190,7 +213,7 @@ public class RegelImpl extends DeklarationImpl implements Regel
         setWenn((Zustand)newValue);
         return;
       case RegelsprachePackage.REGEL__DANN:
-        setDann((Zustand)newValue);
+        setDann((XExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,7 +233,7 @@ public class RegelImpl extends DeklarationImpl implements Regel
         setWenn((Zustand)null);
         return;
       case RegelsprachePackage.REGEL__DANN:
-        setDann((Zustand)null);
+        setDann((XExpression)null);
         return;
     }
     super.eUnset(featureID);

@@ -2,6 +2,7 @@
  */
 package de.jax.heim.regelsprache;
 
+import org.eclipse.xtext.xbase.XExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,29 +50,29 @@ public interface Regel extends Deklaration
   void setWenn(Zustand value);
 
   /**
-   * Returns the value of the '<em><b>Dann</b></em>' reference.
+   * Returns the value of the '<em><b>Dann</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dann</em>' reference isn't clear,
+   * If the meaning of the '<em>Dann</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dann</em>' reference.
-   * @see #setDann(Zustand)
+   * @return the value of the '<em>Dann</em>' containment reference.
+   * @see #setDann(XExpression)
    * @see de.jax.heim.regelsprache.RegelsprachePackage#getRegel_Dann()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Zustand getDann();
+  XExpression getDann();
 
   /**
-   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}' reference.
+   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dann</em>' reference.
+   * @param value the new value of the '<em>Dann</em>' containment reference.
    * @see #getDann()
    * @generated
    */
-  void setDann(Zustand value);
+  void setDann(XExpression value);
 
 } // Regel

@@ -69,6 +69,7 @@ Workflow {
     		//      backtrack = true
     		//  }
     		}
+    		fragment = parser.antlr.DebugAntlrGeneratorFragment auto-inject {}
     
     		// Xtend-based API for validation
     		fragment = validation.ValidatorFragment auto-inject {

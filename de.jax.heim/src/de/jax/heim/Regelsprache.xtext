@@ -1,4 +1,4 @@
-grammar de.jax.heim.Regelsprache with org.eclipse.xtext.common.Terminals
+grammar de.jax.heim.Regelsprache with org.eclipse.xtext.xbase.Xbase
 
 generate regelsprache "http://www.jax.de/heim/Regelsprache"
 
@@ -18,10 +18,5 @@ Zustand:
 ;
 
 Regel:
-	'Wenn' wenn=[Zustand | QualifiedName] 'dann' dann=[Zustand | QualifiedName]
+	'Wenn' wenn=[Zustand | QualifiedName] 'dann' dann=XExpression
 ;
-
-QualifiedName :
-	ID ('.' ID)*
-; 
-
