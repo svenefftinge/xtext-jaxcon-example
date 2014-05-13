@@ -127,35 +127,43 @@ public class RegelspracheGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cWennKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cWennAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cWennQualifiedNameParserRuleCall_1_0 = (RuleCall)cWennAssignment_1.eContents().get(0);
+		private final CrossReference cWennZustandCrossReference_1_0 = (CrossReference)cWennAssignment_1.eContents().get(0);
+		private final RuleCall cWennZustandQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cWennZustandCrossReference_1_0.eContents().get(1);
 		private final Keyword cDannKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDannAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDannQualifiedNameParserRuleCall_3_0 = (RuleCall)cDannAssignment_3.eContents().get(0);
+		private final CrossReference cDannZustandCrossReference_3_0 = (CrossReference)cDannAssignment_3.eContents().get(0);
+		private final RuleCall cDannZustandQualifiedNameParserRuleCall_3_0_1 = (RuleCall)cDannZustandCrossReference_3_0.eContents().get(1);
 		
 		//Regel:
-		//	"Wenn" wenn=QualifiedName "dann" dann=QualifiedName;
+		//	"Wenn" wenn=[Zustand|QualifiedName] "dann" dann=[Zustand|QualifiedName];
 		public ParserRule getRule() { return rule; }
 
-		//"Wenn" wenn=QualifiedName "dann" dann=QualifiedName
+		//"Wenn" wenn=[Zustand|QualifiedName] "dann" dann=[Zustand|QualifiedName]
 		public Group getGroup() { return cGroup; }
 
 		//"Wenn"
 		public Keyword getWennKeyword_0() { return cWennKeyword_0; }
 
-		//wenn=QualifiedName
+		//wenn=[Zustand|QualifiedName]
 		public Assignment getWennAssignment_1() { return cWennAssignment_1; }
 
+		//[Zustand|QualifiedName]
+		public CrossReference getWennZustandCrossReference_1_0() { return cWennZustandCrossReference_1_0; }
+
 		//QualifiedName
-		public RuleCall getWennQualifiedNameParserRuleCall_1_0() { return cWennQualifiedNameParserRuleCall_1_0; }
+		public RuleCall getWennZustandQualifiedNameParserRuleCall_1_0_1() { return cWennZustandQualifiedNameParserRuleCall_1_0_1; }
 
 		//"dann"
 		public Keyword getDannKeyword_2() { return cDannKeyword_2; }
 
-		//dann=QualifiedName
+		//dann=[Zustand|QualifiedName]
 		public Assignment getDannAssignment_3() { return cDannAssignment_3; }
 
+		//[Zustand|QualifiedName]
+		public CrossReference getDannZustandCrossReference_3_0() { return cDannZustandCrossReference_3_0; }
+
 		//QualifiedName
-		public RuleCall getDannQualifiedNameParserRuleCall_3_0() { return cDannQualifiedNameParserRuleCall_3_0; }
+		public RuleCall getDannZustandQualifiedNameParserRuleCall_3_0_1() { return cDannZustandQualifiedNameParserRuleCall_3_0_1; }
 	}
 
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
@@ -273,7 +281,7 @@ public class RegelspracheGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Regel:
-	//	"Wenn" wenn=QualifiedName "dann" dann=QualifiedName;
+	//	"Wenn" wenn=[Zustand|QualifiedName] "dann" dann=[Zustand|QualifiedName];
 	public RegelElements getRegelAccess() {
 		return (pRegel != null) ? pRegel : (pRegel = new RegelElements());
 	}

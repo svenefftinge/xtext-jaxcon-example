@@ -23,55 +23,55 @@ package de.jax.heim.regelsprache;
 public interface Regel extends Deklaration
 {
   /**
-   * Returns the value of the '<em><b>Wenn</b></em>' attribute.
+   * Returns the value of the '<em><b>Wenn</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Wenn</em>' attribute isn't clear,
+   * If the meaning of the '<em>Wenn</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Wenn</em>' attribute.
-   * @see #setWenn(String)
+   * @return the value of the '<em>Wenn</em>' reference.
+   * @see #setWenn(Zustand)
    * @see de.jax.heim.regelsprache.RegelsprachePackage#getRegel_Wenn()
    * @model
    * @generated
    */
-  String getWenn();
+  Zustand getWenn();
 
   /**
-   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getWenn <em>Wenn</em>}' attribute.
+   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getWenn <em>Wenn</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Wenn</em>' attribute.
+   * @param value the new value of the '<em>Wenn</em>' reference.
    * @see #getWenn()
    * @generated
    */
-  void setWenn(String value);
+  void setWenn(Zustand value);
 
   /**
-   * Returns the value of the '<em><b>Dann</b></em>' attribute.
+   * Returns the value of the '<em><b>Dann</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dann</em>' attribute isn't clear,
+   * If the meaning of the '<em>Dann</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dann</em>' attribute.
-   * @see #setDann(String)
+   * @return the value of the '<em>Dann</em>' reference.
+   * @see #setDann(Zustand)
    * @see de.jax.heim.regelsprache.RegelsprachePackage#getRegel_Dann()
    * @model
    * @generated
    */
-  String getDann();
+  Zustand getDann();
 
   /**
-   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}' attribute.
+   * Sets the value of the '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dann</em>' attribute.
+   * @param value the new value of the '<em>Dann</em>' reference.
    * @see #getDann()
    * @generated
    */
-  void setDann(String value);
+  void setDann(Zustand value);
 
 } // Regel

@@ -218,9 +218,9 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRegel_Wenn()
+  public EReference getRegel_Wenn()
   {
-    return (EAttribute)regelEClass.getEStructuralFeatures().get(0);
+    return (EReference)regelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -228,9 +228,9 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRegel_Dann()
+  public EReference getRegel_Dann()
   {
-    return (EAttribute)regelEClass.getEStructuralFeatures().get(1);
+    return (EReference)regelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -276,8 +276,8 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
     createEAttribute(zustandEClass, ZUSTAND__NAME);
 
     regelEClass = createEClass(REGEL);
-    createEAttribute(regelEClass, REGEL__WENN);
-    createEAttribute(regelEClass, REGEL__DANN);
+    createEReference(regelEClass, REGEL__WENN);
+    createEReference(regelEClass, REGEL__DANN);
   }
 
   /**
@@ -326,8 +326,8 @@ public class RegelsprachePackageImpl extends EPackageImpl implements Regelsprach
     initEAttribute(getZustand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Zustand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(regelEClass, Regel.class, "Regel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRegel_Wenn(), ecorePackage.getEString(), "wenn", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRegel_Dann(), ecorePackage.getEString(), "dann", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRegel_Wenn(), this.getZustand(), null, "wenn", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRegel_Dann(), this.getZustand(), null, "dann", null, 0, 1, Regel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

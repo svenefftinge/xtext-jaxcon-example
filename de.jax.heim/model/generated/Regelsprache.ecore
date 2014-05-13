@@ -15,7 +15,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Regel" eSuperTypes="#//Deklaration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wenn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dann" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wenn" eType="#//Zustand"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dann" eType="#//Zustand"/>
   </eClassifiers>
 </ecore:EPackage>

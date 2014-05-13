@@ -18,10 +18,10 @@ Zustand:
 ;
 
 Regel:
-	'Wenn' wenn=QualifiedName 'dann' dann=QualifiedName
+	'Wenn' wenn=[Zustand | QualifiedName] 'dann' dann=[Zustand | QualifiedName]
 ;
 
 QualifiedName :
-    ID ('.' ID)*
-;
+	ID ('.' ID)*
+; 
 

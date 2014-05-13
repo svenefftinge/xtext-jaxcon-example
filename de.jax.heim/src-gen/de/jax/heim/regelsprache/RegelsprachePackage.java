@@ -179,7 +179,7 @@ public interface RegelsprachePackage extends EPackage
   int REGEL = 4;
 
   /**
-   * The feature id for the '<em><b>Wenn</b></em>' attribute.
+   * The feature id for the '<em><b>Wenn</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -188,7 +188,7 @@ public interface RegelsprachePackage extends EPackage
   int REGEL__WENN = DEKLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Dann</b></em>' attribute.
+   * The feature id for the '<em><b>Dann</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -301,26 +301,26 @@ public interface RegelsprachePackage extends EPackage
   EClass getRegel();
 
   /**
-   * Returns the meta object for the attribute '{@link de.jax.heim.regelsprache.Regel#getWenn <em>Wenn</em>}'.
+   * Returns the meta object for the reference '{@link de.jax.heim.regelsprache.Regel#getWenn <em>Wenn</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Wenn</em>'.
+   * @return the meta object for the reference '<em>Wenn</em>'.
    * @see de.jax.heim.regelsprache.Regel#getWenn()
    * @see #getRegel()
    * @generated
    */
-  EAttribute getRegel_Wenn();
+  EReference getRegel_Wenn();
 
   /**
-   * Returns the meta object for the attribute '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}'.
+   * Returns the meta object for the reference '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Dann</em>'.
+   * @return the meta object for the reference '<em>Dann</em>'.
    * @see de.jax.heim.regelsprache.Regel#getDann()
    * @see #getRegel()
    * @generated
    */
-  EAttribute getRegel_Dann();
+  EReference getRegel_Dann();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -428,20 +428,20 @@ public interface RegelsprachePackage extends EPackage
     EClass REGEL = eINSTANCE.getRegel();
 
     /**
-     * The meta object literal for the '<em><b>Wenn</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Wenn</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REGEL__WENN = eINSTANCE.getRegel_Wenn();
+    EReference REGEL__WENN = eINSTANCE.getRegel_Wenn();
 
     /**
-     * The meta object literal for the '<em><b>Dann</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Dann</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REGEL__DANN = eINSTANCE.getRegel_Dann();
+    EReference REGEL__DANN = eINSTANCE.getRegel_Dann();
 
   }
 

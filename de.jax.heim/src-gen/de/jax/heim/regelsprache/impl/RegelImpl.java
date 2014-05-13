@@ -4,10 +4,12 @@ package de.jax.heim.regelsprache.impl;
 
 import de.jax.heim.regelsprache.Regel;
 import de.jax.heim.regelsprache.RegelsprachePackage;
+import de.jax.heim.regelsprache.Zustand;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -28,44 +30,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class RegelImpl extends DeklarationImpl implements Regel
 {
   /**
-   * The default value of the '{@link #getWenn() <em>Wenn</em>}' attribute.
+   * The cached value of the '{@link #getWenn() <em>Wenn</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getWenn()
    * @generated
    * @ordered
    */
-  protected static final String WENN_EDEFAULT = null;
+  protected Zustand wenn;
 
   /**
-   * The cached value of the '{@link #getWenn() <em>Wenn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getWenn()
-   * @generated
-   * @ordered
-   */
-  protected String wenn = WENN_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDann() <em>Dann</em>}' attribute.
+   * The cached value of the '{@link #getDann() <em>Dann</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDann()
    * @generated
    * @ordered
    */
-  protected static final String DANN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDann() <em>Dann</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDann()
-   * @generated
-   * @ordered
-   */
-  protected String dann = DANN_EDEFAULT;
+  protected Zustand dann;
 
   /**
    * <!-- begin-user-doc -->
@@ -93,7 +75,27 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getWenn()
+  public Zustand getWenn()
+  {
+    if (wenn != null && wenn.eIsProxy())
+    {
+      InternalEObject oldWenn = (InternalEObject)wenn;
+      wenn = (Zustand)eResolveProxy(oldWenn);
+      if (wenn != oldWenn)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RegelsprachePackage.REGEL__WENN, oldWenn, wenn));
+      }
+    }
+    return wenn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Zustand basicGetWenn()
   {
     return wenn;
   }
@@ -103,9 +105,9 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWenn(String newWenn)
+  public void setWenn(Zustand newWenn)
   {
-    String oldWenn = wenn;
+    Zustand oldWenn = wenn;
     wenn = newWenn;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RegelsprachePackage.REGEL__WENN, oldWenn, wenn));
@@ -116,7 +118,27 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDann()
+  public Zustand getDann()
+  {
+    if (dann != null && dann.eIsProxy())
+    {
+      InternalEObject oldDann = (InternalEObject)dann;
+      dann = (Zustand)eResolveProxy(oldDann);
+      if (dann != oldDann)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RegelsprachePackage.REGEL__DANN, oldDann, dann));
+      }
+    }
+    return dann;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Zustand basicGetDann()
   {
     return dann;
   }
@@ -126,9 +148,9 @@ public class RegelImpl extends DeklarationImpl implements Regel
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDann(String newDann)
+  public void setDann(Zustand newDann)
   {
-    String oldDann = dann;
+    Zustand oldDann = dann;
     dann = newDann;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RegelsprachePackage.REGEL__DANN, oldDann, dann));
@@ -145,9 +167,11 @@ public class RegelImpl extends DeklarationImpl implements Regel
     switch (featureID)
     {
       case RegelsprachePackage.REGEL__WENN:
-        return getWenn();
+        if (resolve) return getWenn();
+        return basicGetWenn();
       case RegelsprachePackage.REGEL__DANN:
-        return getDann();
+        if (resolve) return getDann();
+        return basicGetDann();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,10 +187,10 @@ public class RegelImpl extends DeklarationImpl implements Regel
     switch (featureID)
     {
       case RegelsprachePackage.REGEL__WENN:
-        setWenn((String)newValue);
+        setWenn((Zustand)newValue);
         return;
       case RegelsprachePackage.REGEL__DANN:
-        setDann((String)newValue);
+        setDann((Zustand)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,10 +207,10 @@ public class RegelImpl extends DeklarationImpl implements Regel
     switch (featureID)
     {
       case RegelsprachePackage.REGEL__WENN:
-        setWenn(WENN_EDEFAULT);
+        setWenn((Zustand)null);
         return;
       case RegelsprachePackage.REGEL__DANN:
-        setDann(DANN_EDEFAULT);
+        setDann((Zustand)null);
         return;
     }
     super.eUnset(featureID);
@@ -203,30 +227,11 @@ public class RegelImpl extends DeklarationImpl implements Regel
     switch (featureID)
     {
       case RegelsprachePackage.REGEL__WENN:
-        return WENN_EDEFAULT == null ? wenn != null : !WENN_EDEFAULT.equals(wenn);
+        return wenn != null;
       case RegelsprachePackage.REGEL__DANN:
-        return DANN_EDEFAULT == null ? dann != null : !DANN_EDEFAULT.equals(dann);
+        return dann != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (wenn: ");
-    result.append(wenn);
-    result.append(", dann: ");
-    result.append(dann);
-    result.append(')');
-    return result.toString();
   }
 
 } //RegelImpl

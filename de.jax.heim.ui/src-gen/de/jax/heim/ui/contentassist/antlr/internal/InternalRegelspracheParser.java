@@ -2058,25 +2058,33 @@ public class InternalRegelspracheParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Regel__WennAssignment_1"
-    // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:797:1: rule__Regel__WennAssignment_1 : ( ruleQualifiedName ) ;
+    // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:797:1: rule__Regel__WennAssignment_1 : ( ( ruleQualifiedName ) ) ;
     public final void rule__Regel__WennAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:801:1: ( ( ruleQualifiedName ) )
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:802:1: ( ruleQualifiedName )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:801:1: ( ( ( ruleQualifiedName ) ) )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:802:1: ( ( ruleQualifiedName ) )
             {
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:802:1: ( ruleQualifiedName )
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:803:1: ruleQualifiedName
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:802:1: ( ( ruleQualifiedName ) )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:803:1: ( ruleQualifiedName )
             {
-             before(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Regel__WennAssignment_11561);
+             before(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); 
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:804:1: ( ruleQualifiedName )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:805:1: ruleQualifiedName
+            {
+             before(grammarAccess.getRegelAccess().getWennZustandQualifiedNameParserRuleCall_1_0_1()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Regel__WennAssignment_11565);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); 
+             after(grammarAccess.getRegelAccess().getWennZustandQualifiedNameParserRuleCall_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); 
 
             }
 
@@ -2099,25 +2107,33 @@ public class InternalRegelspracheParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Regel__DannAssignment_3"
-    // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:812:1: rule__Regel__DannAssignment_3 : ( ruleQualifiedName ) ;
+    // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:816:1: rule__Regel__DannAssignment_3 : ( ( ruleQualifiedName ) ) ;
     public final void rule__Regel__DannAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:816:1: ( ( ruleQualifiedName ) )
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:817:1: ( ruleQualifiedName )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:820:1: ( ( ( ruleQualifiedName ) ) )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:821:1: ( ( ruleQualifiedName ) )
             {
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:817:1: ( ruleQualifiedName )
-            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:818:1: ruleQualifiedName
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:821:1: ( ( ruleQualifiedName ) )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:822:1: ( ruleQualifiedName )
             {
-             before(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Regel__DannAssignment_31592);
+             before(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); 
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:823:1: ( ruleQualifiedName )
+            // ../de.jax.heim.ui/src-gen/de/jax/heim/ui/contentassist/antlr/internal/InternalRegelsprache.g:824:1: ruleQualifiedName
+            {
+             before(grammarAccess.getRegelAccess().getDannZustandQualifiedNameParserRuleCall_3_0_1()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_rule__Regel__DannAssignment_31604);
             ruleQualifiedName();
 
             state._fsp--;
 
-             after(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); 
+             after(grammarAccess.getRegelAccess().getDannZustandQualifiedNameParserRuleCall_3_0_1()); 
+
+            }
+
+             after(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); 
 
             }
 
@@ -2207,7 +2223,7 @@ public class InternalRegelspracheParser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_ruleZustand_in_rule__Geraet__ZustaendeAssignment_2_01468 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleZustand_in_rule__Geraet__ZustaendeAssignment_2_1_11499 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Zustand__NameAssignment1530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Regel__WennAssignment_11561 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Regel__DannAssignment_31592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Regel__WennAssignment_11565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rule__Regel__DannAssignment_31604 = new BitSet(new long[]{0x0000000000000002L});
 
 }

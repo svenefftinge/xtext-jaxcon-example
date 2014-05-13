@@ -284,18 +284,15 @@ ruleRegel returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); 
-	    }
-		lv_wenn_1_0=ruleQualifiedName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRegelRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRegelRule());
 	        }
-       		set(
-       			$current, 
-       			"wenn",
-        		lv_wenn_1_0, 
-        		"QualifiedName");
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); 
+	    }
+		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -306,18 +303,15 @@ ruleRegel returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); 
-	    }
-		lv_dann_3_0=ruleQualifiedName		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRegelRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRegelRule());
 	        }
-       		set(
-       			$current, 
-       			"dann",
-        		lv_dann_3_0, 
-        		"QualifiedName");
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); 
+	    }
+		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 

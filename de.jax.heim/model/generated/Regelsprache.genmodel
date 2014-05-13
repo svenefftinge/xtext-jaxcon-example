@@ -19,8 +19,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Zustand/name"/>
     </genClasses>
     <genClasses ecoreClass="Regelsprache.ecore#//Regel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Regel/wenn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Regelsprache.ecore#//Regel/dann"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Regel/wenn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Regel/dann"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

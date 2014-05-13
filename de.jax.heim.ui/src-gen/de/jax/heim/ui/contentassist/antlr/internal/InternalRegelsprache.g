@@ -800,8 +800,12 @@ rule__Regel__WennAssignment_1
     }
 :
 (
-{ before(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); }
-	ruleQualifiedName{ after(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); }
+{ before(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); }
+(
+{ before(grammarAccess.getRegelAccess().getWennZustandQualifiedNameParserRuleCall_1_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getRegelAccess().getWennZustandQualifiedNameParserRuleCall_1_0_1()); }
+)
+{ after(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); }
 )
 
 ;
@@ -815,8 +819,12 @@ rule__Regel__DannAssignment_3
     }
 :
 (
-{ before(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); }
-	ruleQualifiedName{ after(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); }
+{ before(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); }
+(
+{ before(grammarAccess.getRegelAccess().getDannZustandQualifiedNameParserRuleCall_3_0_1()); }
+	ruleQualifiedName{ after(grammarAccess.getRegelAccess().getDannZustandQualifiedNameParserRuleCall_3_0_1()); }
+)
+{ after(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); }
 )
 
 ;

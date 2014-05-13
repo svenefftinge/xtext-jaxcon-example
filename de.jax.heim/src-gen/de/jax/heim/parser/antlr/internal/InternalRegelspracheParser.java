@@ -664,53 +664,46 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRegel"
-    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:277:1: ruleRegel returns [EObject current=null] : (otherlv_0= 'Wenn' ( (lv_wenn_1_0= ruleQualifiedName ) ) otherlv_2= 'dann' ( (lv_dann_3_0= ruleQualifiedName ) ) ) ;
+    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:277:1: ruleRegel returns [EObject current=null] : (otherlv_0= 'Wenn' ( ( ruleQualifiedName ) ) otherlv_2= 'dann' ( ( ruleQualifiedName ) ) ) ;
     public final EObject ruleRegel() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
-        AntlrDatatypeRuleToken lv_wenn_1_0 = null;
-
-        AntlrDatatypeRuleToken lv_dann_3_0 = null;
-
 
          enterRule(); 
             
         try {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:280:28: ( (otherlv_0= 'Wenn' ( (lv_wenn_1_0= ruleQualifiedName ) ) otherlv_2= 'dann' ( (lv_dann_3_0= ruleQualifiedName ) ) ) )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:1: (otherlv_0= 'Wenn' ( (lv_wenn_1_0= ruleQualifiedName ) ) otherlv_2= 'dann' ( (lv_dann_3_0= ruleQualifiedName ) ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:280:28: ( (otherlv_0= 'Wenn' ( ( ruleQualifiedName ) ) otherlv_2= 'dann' ( ( ruleQualifiedName ) ) ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:1: (otherlv_0= 'Wenn' ( ( ruleQualifiedName ) ) otherlv_2= 'dann' ( ( ruleQualifiedName ) ) )
             {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:1: (otherlv_0= 'Wenn' ( (lv_wenn_1_0= ruleQualifiedName ) ) otherlv_2= 'dann' ( (lv_dann_3_0= ruleQualifiedName ) ) )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:3: otherlv_0= 'Wenn' ( (lv_wenn_1_0= ruleQualifiedName ) ) otherlv_2= 'dann' ( (lv_dann_3_0= ruleQualifiedName ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:1: (otherlv_0= 'Wenn' ( ( ruleQualifiedName ) ) otherlv_2= 'dann' ( ( ruleQualifiedName ) ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:281:3: otherlv_0= 'Wenn' ( ( ruleQualifiedName ) ) otherlv_2= 'dann' ( ( ruleQualifiedName ) )
             {
             otherlv_0=(Token)match(input,13,FOLLOW_13_in_ruleRegel588); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRegelAccess().getWennKeyword_0());
                 
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:285:1: ( (lv_wenn_1_0= ruleQualifiedName ) )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:286:1: (lv_wenn_1_0= ruleQualifiedName )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:285:1: ( ( ruleQualifiedName ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:286:1: ( ruleQualifiedName )
             {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:286:1: (lv_wenn_1_0= ruleQualifiedName )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:287:3: lv_wenn_1_0= ruleQualifiedName
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:286:1: ( ruleQualifiedName )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:287:3: ruleQualifiedName
             {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getRegelRule());
+            	        }
+                    
              
-            	        newCompositeNode(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getRegelAccess().getWennZustandCrossReference_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRegel609);
-            lv_wenn_1_0=ruleQualifiedName();
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRegel611);
+            ruleQualifiedName();
 
             state._fsp--;
 
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getRegelRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"wenn",
-                    		lv_wenn_1_0, 
-                    		"QualifiedName");
+             
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -719,33 +712,30 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,14,FOLLOW_14_in_ruleRegel621); 
+            otherlv_2=(Token)match(input,14,FOLLOW_14_in_ruleRegel623); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRegelAccess().getDannKeyword_2());
                 
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:307:1: ( (lv_dann_3_0= ruleQualifiedName ) )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:308:1: (lv_dann_3_0= ruleQualifiedName )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:304:1: ( ( ruleQualifiedName ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:305:1: ( ruleQualifiedName )
             {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:308:1: (lv_dann_3_0= ruleQualifiedName )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:309:3: lv_dann_3_0= ruleQualifiedName
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:305:1: ( ruleQualifiedName )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:306:3: ruleQualifiedName
             {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getRegelRule());
+            	        }
+                    
              
-            	        newCompositeNode(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getRegelAccess().getDannZustandCrossReference_3_0()); 
             	    
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRegel642);
-            lv_dann_3_0=ruleQualifiedName();
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleRegel646);
+            ruleQualifiedName();
 
             state._fsp--;
 
-
-            	        if (current==null) {
-            	            current = createModelElementForParent(grammarAccess.getRegelRule());
-            	        }
-                   		set(
-                   			current, 
-                   			"dann",
-                    		lv_dann_3_0, 
-                    		"QualifiedName");
+             
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -775,7 +765,7 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:333:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:327:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -783,17 +773,17 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:334:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:335:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:328:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:329:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName679);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName683);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
 
              current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName690); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName694); 
 
             }
 
@@ -811,7 +801,7 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:342:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:336:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -822,20 +812,20 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:345:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:346:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:339:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:340:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:346:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:346:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:340:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:340:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName730); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName734); 
 
             		current.merge(this_ID_0);
                 
              
                 newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                 
-            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:353:1: (kw= '.' this_ID_2= RULE_ID )*
+            // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:347:1: (kw= '.' this_ID_2= RULE_ID )*
             loop5:
             do {
                 int alt5=2;
@@ -848,14 +838,14 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:354:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../de.jax.heim/src-gen/de/jax/heim/parser/antlr/internal/InternalRegelsprache.g:348:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,15,FOLLOW_15_in_ruleQualifiedName749); 
+            	    kw=(Token)match(input,15,FOLLOW_15_in_ruleQualifiedName753); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName764); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName768); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -915,13 +905,13 @@ public class InternalRegelspracheParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleRegel_in_entryRuleRegel541 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRegel551 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_13_in_ruleRegel588 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRegel609 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleRegel621 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRegel642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName679 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName690 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName730 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleQualifiedName749 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName764 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRegel611 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleRegel623 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleRegel646 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName683 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName734 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleQualifiedName753 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName768 = new BitSet(new long[]{0x0000000000008002L});
 
 }

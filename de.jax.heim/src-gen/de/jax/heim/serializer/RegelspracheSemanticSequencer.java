@@ -78,7 +78,7 @@ public class RegelspracheSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (wenn=QualifiedName dann=QualifiedName)
+	 *     (wenn=[Zustand|QualifiedName] dann=[Zustand|QualifiedName])
 	 */
 	protected void sequence_Regel(EObject context, Regel semanticObject) {
 		if(errorAcceptor != null) {
@@ -89,8 +89,8 @@ public class RegelspracheSemanticSequencer extends AbstractDelegatingSemanticSeq
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRegelAccess().getWennQualifiedNameParserRuleCall_1_0(), semanticObject.getWenn());
-		feeder.accept(grammarAccess.getRegelAccess().getDannQualifiedNameParserRuleCall_3_0(), semanticObject.getDann());
+		feeder.accept(grammarAccess.getRegelAccess().getWennZustandQualifiedNameParserRuleCall_1_0_1(), semanticObject.getWenn());
+		feeder.accept(grammarAccess.getRegelAccess().getDannZustandQualifiedNameParserRuleCall_3_0_1(), semanticObject.getDann());
 		feeder.finish();
 	}
 	
