@@ -16,6 +16,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Regel" eSuperTypes="#//Deklaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="wenn" eType="#//Zustand"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dann" eType="#//Zustand"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dann" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

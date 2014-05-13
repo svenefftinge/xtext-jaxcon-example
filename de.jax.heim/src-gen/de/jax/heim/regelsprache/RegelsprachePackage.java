@@ -188,7 +188,7 @@ public interface RegelsprachePackage extends EPackage
   int REGEL__WENN = DEKLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Dann</b></em>' reference.
+   * The feature id for the '<em><b>Dann</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -312,10 +312,10 @@ public interface RegelsprachePackage extends EPackage
   EReference getRegel_Wenn();
 
   /**
-   * Returns the meta object for the reference '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}'.
+   * Returns the meta object for the containment reference '{@link de.jax.heim.regelsprache.Regel#getDann <em>Dann</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Dann</em>'.
+   * @return the meta object for the containment reference '<em>Dann</em>'.
    * @see de.jax.heim.regelsprache.Regel#getDann()
    * @see #getRegel()
    * @generated
@@ -436,7 +436,7 @@ public interface RegelsprachePackage extends EPackage
     EReference REGEL__WENN = eINSTANCE.getRegel_Wenn();
 
     /**
-     * The meta object literal for the '<em><b>Dann</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Dann</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

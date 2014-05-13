@@ -4,7 +4,7 @@
     editorDirectory="/de.jax.heim.editor/src" modelPluginID="de.jax.heim" forceOverwrite="true"
     modelName="Regelsprache" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="de.jax.heim.edit"
-    editorPluginID="de.jax.heim.editor" runtimeVersion="2.10">
+    editorPluginID="de.jax.heim.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase">
   <genPackages prefix="Regelsprache" basePackage="de.jax.heim" disposableProviderFactory="true"
       fileExtensions="regeln" ecorePackage="Regelsprache.ecore#/">
     <genClasses ecoreClass="Regelsprache.ecore#//Model">
@@ -20,7 +20,7 @@
     </genClasses>
     <genClasses ecoreClass="Regelsprache.ecore#//Regel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Regel/wenn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Regel/dann"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Regelsprache.ecore#//Regel/dann"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
