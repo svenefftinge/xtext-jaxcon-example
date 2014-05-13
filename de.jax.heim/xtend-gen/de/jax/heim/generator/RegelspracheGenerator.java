@@ -3,9 +3,19 @@
  */
 package de.jax.heim.generator;
 
+import com.google.common.collect.Iterables;
+import de.jax.heim.regelsprache.Geraet;
+import de.jax.heim.regelsprache.Regel;
+import de.jax.heim.regelsprache.Zustand;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -15,5 +25,263 @@ import org.eclipse.xtext.generator.IGenerator;
 @SuppressWarnings("all")
 public class RegelspracheGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    final String packageName = "mein.heim";
+    EList<EObject> _contents = resource.getContents();
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    EList<EObject> _eContents = _head.eContents();
+    final Iterable<Regel> regeln = Iterables.<Regel>filter(_eContents, Regel.class);
+    boolean _isEmpty = IterableExtensions.isEmpty(regeln);
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      URI _uRI = resource.getURI();
+      URI _trimFileExtension = _uRI.trimFileExtension();
+      String _lastSegment = _trimFileExtension.lastSegment();
+      final String nameMaschine = (_lastSegment + "RegelMaschine");
+      String _replace = packageName.replace(".", "/");
+      String _plus = (_replace + "/");
+      String _plus_1 = (_plus + nameMaschine);
+      String _plus_2 = (_plus_1 + ".java");
+      CharSequence _bodyOfRegelMaschine = this.bodyOfRegelMaschine(packageName, nameMaschine, regeln);
+      fsa.generateFile(_plus_2, _bodyOfRegelMaschine);
+    }
+    EList<EObject> _contents_1 = resource.getContents();
+    EObject _head_1 = IterableExtensions.<EObject>head(_contents_1);
+    EList<EObject> _eContents_1 = _head_1.eContents();
+    Iterable<Geraet> _filter = Iterables.<Geraet>filter(_eContents_1, Geraet.class);
+    for (final Geraet geraet : _filter) {
+      String _replace_1 = packageName.replace(".", "/");
+      String _plus_3 = (_replace_1 + "/");
+      String _name = geraet.getName();
+      String _plus_4 = (_plus_3 + _name);
+      String _plus_5 = (_plus_4 + ".java");
+      CharSequence _generateEnum = this.generateEnum(packageName, geraet);
+      fsa.generateFile(_plus_5, _generateEnum);
+    }
+  }
+  
+  public CharSequence generateEnum(final String packageName, final Geraet geraet) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(packageName, "");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("public enum ");
+    String _name = geraet.getName();
+    _builder.append(_name, "");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Zustand> _zustaende = geraet.getZustaende();
+      boolean _hasElements = false;
+      for(final Zustand zustand : _zustaende) {
+        if (!_hasElements) {
+          _hasElements = true;
+        } else {
+          _builder.appendImmediate(",", "\t");
+        }
+        _builder.append("\t");
+        String _name_1 = zustand.getName();
+        _builder.append(_name_1, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence bodyOfRegelMaschine(final String packageName, final String name, final Iterable<? extends Regel> regeln) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(packageName, "");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("import java.util.Scanner;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    _builder.append(name, "");
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("public static void main(String[] args) {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("new ");
+    _builder.append(name, "        ");
+    _builder.append("().run();");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("public void run() {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("Scanner sc = new Scanner(System.in);");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("System.out.println(\"Haussimulator aktiviert. Folgende Befehle stehen zur Verfügung : \");");
+    _builder.newLine();
+    {
+      final Function1<Regel, Geraet> _function = new Function1<Regel, Geraet>() {
+        public Geraet apply(final Regel it) {
+          Zustand _wenn = it.getWenn();
+          return RegelspracheGenerator.this.getGeraet(_wenn);
+        }
+      };
+      Iterable<Geraet> _map = IterableExtensions.map(regeln, _function);
+      final Function1<Geraet, EList<Zustand>> _function_1 = new Function1<Geraet, EList<Zustand>>() {
+        public EList<Zustand> apply(final Geraet it) {
+          return it.getZustaende();
+        }
+      };
+      Iterable<EList<Zustand>> _map_1 = IterableExtensions.<Geraet, EList<Zustand>>map(_map, _function_1);
+      Iterable<Zustand> _flatten = Iterables.<Zustand>concat(_map_1);
+      for(final Zustand zustand : _flatten) {
+        _builder.append("        ");
+        _builder.append("System.out.println(\" - ");
+        Geraet _geraet = this.getGeraet(zustand);
+        String _name = _geraet.getName();
+        _builder.append(_name, "        ");
+        _builder.append(" ");
+        String _name_1 = zustand.getName();
+        _builder.append(_name_1, "        ");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("        ");
+    _builder.append("System.out.println(\"Warte auf Eingabe...\");");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("while(sc.hasNextLine()) {");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("String command = sc.nextLine();");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("String[] split = command.split(\" \");");
+    _builder.newLine();
+    {
+      final Function1<Regel, Geraet> _function_2 = new Function1<Regel, Geraet>() {
+        public Geraet apply(final Regel it) {
+          Zustand _wenn = it.getWenn();
+          return RegelspracheGenerator.this.getGeraet(_wenn);
+        }
+      };
+      Iterable<Geraet> _map_2 = IterableExtensions.map(regeln, _function_2);
+      for(final Geraet geraet : _map_2) {
+        _builder.append("            ");
+        _builder.append("if (split[0].equals(\"");
+        String _name_2 = geraet.getName();
+        _builder.append(_name_2, "            ");
+        _builder.append("\")) {");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Zustand> _zustaende = geraet.getZustaende();
+          for(final Zustand zustand_1 : _zustaende) {
+            _builder.append("            ");
+            _builder.append("if (split[1].equals(\"");
+            String _name_3 = zustand_1.getName();
+            _builder.append(_name_3, "            ");
+            _builder.append("\")) {");
+            _builder.newLineIfNotEmpty();
+            _builder.append("            ");
+            _builder.append("    ");
+            _builder.append("trigger(");
+            String _name_4 = geraet.getName();
+            _builder.append(_name_4, "                ");
+            _builder.append(".");
+            String _name_5 = zustand_1.getName();
+            _builder.append(_name_5, "                ");
+            _builder.append(");");
+            _builder.newLineIfNotEmpty();
+            _builder.append("            ");
+            _builder.append("} else ");
+            _builder.newLine();
+          }
+        }
+        _builder.append("            ");
+        _builder.append("        ");
+        _builder.append("{");
+        _builder.newLine();
+        _builder.append("            ");
+        _builder.append("        ");
+        _builder.append("System.err.println(\"Der Zustand \"+split[1]+\" ist für das Gerät \"+split[0]+\" nicht definiert.\");");
+        _builder.newLine();
+        _builder.append("            ");
+        _builder.append("    ");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("            ");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("            ");
+    _builder.append("System.out.println(\"Warte auf Eingabe...\");");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("protected void trigger(Enum<?> event) {");
+    _builder.newLine();
+    _builder.append("    \t");
+    _builder.append("System.out.println(\"Signal \'\"+event.getClass().getSimpleName()+\" \"+event+\"\' eingegangen.\");");
+    _builder.newLine();
+    {
+      for(final Regel regel : regeln) {
+        _builder.append("        ");
+        _builder.append("if (event == ");
+        Zustand _wenn = regel.getWenn();
+        Geraet _geraet_1 = this.getGeraet(_wenn);
+        String _name_6 = _geraet_1.getName();
+        _builder.append(_name_6, "        ");
+        _builder.append(".");
+        Zustand _wenn_1 = regel.getWenn();
+        String _name_7 = _wenn_1.getName();
+        _builder.append(_name_7, "        ");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("        ");
+        _builder.append("    ");
+        _builder.append("trigger(");
+        Zustand _dann = regel.getDann();
+        Geraet _geraet_2 = this.getGeraet(_dann);
+        String _name_8 = _geraet_2.getName();
+        _builder.append(_name_8, "            ");
+        _builder.append(".");
+        Zustand _dann_1 = regel.getDann();
+        String _name_9 = _dann_1.getName();
+        _builder.append(_name_9, "            ");
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("        ");
+        _builder.append("} ");
+        _builder.newLine();
+      }
+    }
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public Geraet getGeraet(final Zustand zustand) {
+    EObject _eContainer = zustand.eContainer();
+    return ((Geraet) _eContainer);
   }
 }
