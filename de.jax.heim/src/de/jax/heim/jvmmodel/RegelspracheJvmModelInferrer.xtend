@@ -14,7 +14,6 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor.IPostIndexingIn
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.eclipse.xtext.xbase.typesystem.IBatchTypeResolver
 import org.eclipse.xtext.xbase.XExpression
-import org.eclipse.xtext.common.types.JvmEnumerationType
 import java.util.Scanner
 
 /**
@@ -28,43 +27,43 @@ class RegelspracheJvmModelInferrer extends AbstractModelInferrer {
     /**
      * convenience API to build and initialize JVM types and their members.
      */
-	@Inject extension JvmTypesBuilder
+    @Inject extension JvmTypesBuilder
 
     @Inject IBatchTypeResolver batchTypeResolver
-	/**
-	 * The dispatch method {@code infer} is called for each instance of the
-	 * given element's type that is contained in a resource.
-	 * 
-	 * @param element
-	 *            the model to create one or more
-	 *            {@link JvmDeclaredType declared
-	 *            types} from.
-	 * @param acceptor
-	 *            each created
-	 *            {@link JvmDeclaredType type}
-	 *            without a container should be passed to the acceptor in order
-	 *            get attached to the current resource. The acceptor's
-	 *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
-	 *            accept(..)} method takes the constructed empty type for the
-	 *            pre-indexing phase. This one is further initialized in the
-	 *            indexing phase using the closure you pass to the returned
-	 *            {@link IPostIndexingInitializing#initializeLater(org.eclipse.xtext.xbase.lib.Procedures.Procedure1)
-	 *            initializeLater(..)}.
-	 * @param isPreIndexingPhase
-	 *            whether the method is called in a pre-indexing phase, i.e.
-	 *            when the global index is not yet fully updated. You must not
-	 *            rely on linking using the index if isPreIndexingPhase is
-	 *            <code>true</code>.
-	 */
-   	def dispatch void infer(Model model, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
-   		val packageName = "mein.heim"
+    /**
+     * The dispatch method {@code infer} is called for each instance of the
+     * given element's type that is contained in a resource.
+     * 
+     * @param element
+     *            the model to create one or more
+     *            {@link JvmDeclaredType declared
+     *            types} from.
+     * @param acceptor
+     *            each created
+     *            {@link JvmDeclaredType type}
+     *            without a container should be passed to the acceptor in order
+     *            get attached to the current resource. The acceptor's
+     *            {@link IJvmDeclaredTypeAcceptor#accept(org.eclipse.xtext.common.types.JvmDeclaredType)
+     *            accept(..)} method takes the constructed empty type for the
+     *            pre-indexing phase. This one is further initialized in the
+     *            indexing phase using the closure you pass to the returned
+     *            {@link IPostIndexingInitializing#initializeLater(org.eclipse.xtext.xbase.lib.Procedures.Procedure1)
+     *            initializeLater(..)}.
+     * @param isPreIndexingPhase
+     *            whether the method is called in a pre-indexing phase, i.e.
+     *            when the global index is not yet fully updated. You must not
+     *            rely on linking using the index if isPreIndexingPhase is
+     *            <code>true</code>.
+     */
+    def dispatch void infer(Model model, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+        val packageName = "mein.heim"
         val regeln = model.deklarationen.filter(Regel)
         if (!regeln.empty) {
             val nameMaschine = packageName+"."+model.eResource.URI.trimFileExtension.lastSegment+"RegelMaschine"
-       		acceptor.accept(model.toClass(nameMaschine))
-       			.initializeLater([
-       				initializeRegelMaschine(model, regeln)
-       			])
+            acceptor.accept(model.toClass(nameMaschine))
+                .initializeLater([
+                    initializeRegelMaschine(model, regeln)
+                ])
         }
         for (geraet : model.deklarationen.filter(Geraet)) {
             acceptor.accept(geraet.toEnumerationType(packageName+"."+geraet.name)[]).initializeLater [
@@ -72,8 +71,8 @@ class RegelspracheJvmModelInferrer extends AbstractModelInferrer {
                     members += zustand.toEnumerationLiteral(zustand.name)
                 }
             ]
-        }   		
-   	}
+        }
+    }
     
     def initializeRegelMaschine(JvmGenericType type, Model model, Iterable<? extends Regel> regeln) {
         type.members += model.toMethod('main', model.newTypeRef(Void.TYPE)) [
