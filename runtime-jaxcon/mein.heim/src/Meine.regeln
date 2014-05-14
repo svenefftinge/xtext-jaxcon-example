@@ -1,0 +1,5 @@
+Fenster kann auf, zu
+Heizung kann an, aus
+
+Wenn Fenster.auf dann Heizung.aus
+Wenn Heizung.an  dann Fenster.zu
