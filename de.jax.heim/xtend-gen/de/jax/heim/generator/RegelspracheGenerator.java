@@ -77,11 +77,11 @@ public class RegelspracheGenerator implements IGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(",", "\t");
+          _builder.appendImmediate(",", "    ");
         }
-        _builder.append("\t");
+        _builder.append("    ");
         String _name_1 = zustand.getName();
-        _builder.append(_name_1, "\t");
+        _builder.append(_name_1, "    ");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -185,28 +185,31 @@ public class RegelspracheGenerator implements IGenerator {
           EList<Zustand> _zustaende = geraet.getZustaende();
           for(final Zustand zustand_1 : _zustaende) {
             _builder.append("            ");
+            _builder.append("    ");
             _builder.append("if (split[1].equals(\"");
             String _name_3 = zustand_1.getName();
-            _builder.append(_name_3, "            ");
+            _builder.append(_name_3, "                ");
             _builder.append("\")) {");
             _builder.newLineIfNotEmpty();
             _builder.append("            ");
             _builder.append("    ");
+            _builder.append("    ");
             _builder.append("trigger(");
             String _name_4 = geraet.getName();
-            _builder.append(_name_4, "                ");
+            _builder.append(_name_4, "                    ");
             _builder.append(".");
             String _name_5 = zustand_1.getName();
-            _builder.append(_name_5, "                ");
+            _builder.append(_name_5, "                    ");
             _builder.append(");");
             _builder.newLineIfNotEmpty();
             _builder.append("            ");
+            _builder.append("    ");
             _builder.append("} else ");
             _builder.newLine();
           }
         }
         _builder.append("            ");
-        _builder.append("        ");
+        _builder.append("    ");
         _builder.append("{");
         _builder.newLine();
         _builder.append("            ");
@@ -235,7 +238,7 @@ public class RegelspracheGenerator implements IGenerator {
     _builder.append("    ");
     _builder.append("protected void trigger(Enum<?> event) {");
     _builder.newLine();
-    _builder.append("    \t");
+    _builder.append("        ");
     _builder.append("System.out.println(\"Signal \'\"+event.getClass().getSimpleName()+\" \"+event+\"\' eingegangen.\");");
     _builder.newLine();
     {

@@ -57,24 +57,24 @@ class GeneratorTest {
                         String command = sc.nextLine();
                         String[] split = command.split(" ");
                         if (split[0].equals("Fenster")) {
-                        if (split[1].equals("auf")) {
-                            trigger(Fenster.auf);
-                        } else 
-                        if (split[1].equals("zu")) {
-                            trigger(Fenster.zu);
-                        } else 
-                                {
+                            if (split[1].equals("auf")) {
+                                trigger(Fenster.auf);
+                            } else 
+                            if (split[1].equals("zu")) {
+                                trigger(Fenster.zu);
+                            } else 
+                            {
                                 System.err.println("Der Zustand "+split[1]+" ist für das Gerät "+split[0]+" nicht definiert.");
                             }
                         }
                         if (split[0].equals("Heizung")) {
-                        if (split[1].equals("an")) {
-                            trigger(Heizung.an);
-                        } else 
-                        if (split[1].equals("aus")) {
-                            trigger(Heizung.aus);
-                        } else 
-                                {
+                            if (split[1].equals("an")) {
+                                trigger(Heizung.an);
+                            } else 
+                            if (split[1].equals("aus")) {
+                                trigger(Heizung.aus);
+                            } else 
+                            {
                                 System.err.println("Der Zustand "+split[1]+" ist für das Gerät "+split[0]+" nicht definiert.");
                             }
                         }
@@ -83,6 +83,7 @@ class GeneratorTest {
                 }
             
                 protected void trigger(Enum<?> event) {
+                    System.out.println("Signal '"+event.getClass().getSimpleName()+" "+event+"' eingegangen.");
                     if (event == Fenster.auf) {
                         trigger(Heizung.aus);
                     } 

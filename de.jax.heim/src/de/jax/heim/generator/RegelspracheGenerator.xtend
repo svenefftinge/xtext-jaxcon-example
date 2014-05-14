@@ -19,22 +19,22 @@ class RegelspracheGenerator implements IGenerator {
     
     override void doGenerate(Resource resource, IFileSystemAccess fsa) {
         val packageName = "mein.heim"
-    	val regeln = resource.contents.head.eContents.filter(Regel)
-    	if (!regeln.empty) {
-        	val nameMaschine = resource.URI.trimFileExtension.lastSegment+"RegelMaschine"
+        val regeln = resource.contents.head.eContents.filter(Regel)
+        if (!regeln.empty) {
+            val nameMaschine = resource.URI.trimFileExtension.lastSegment+"RegelMaschine"
             fsa.generateFile(packageName.replace('.','/')+'/'+nameMaschine+'.java', bodyOfRegelMaschine(packageName, nameMaschine, regeln))
-    	}
-    	for (geraet : resource.contents.head.eContents.filter(Geraet)) {
-    		fsa.generateFile(packageName.replace('.','/')+'/'+geraet.name+".java", generateEnum(packageName, geraet))
-    	}
+        }
+        for (geraet : resource.contents.head.eContents.filter(Geraet)) {
+            fsa.generateFile(packageName.replace('.','/')+'/'+geraet.name+".java", generateEnum(packageName, geraet))
+        }
     }
     
     def generateEnum(String packageName, Geraet geraet) '''
         package «packageName»;
         public enum «geraet.name» {
-        	«FOR zustand : geraet.zustaende SEPARATOR ','»
-        	   «zustand.name»
-        	«ENDFOR»
+            «FOR zustand : geraet.zustaende SEPARATOR ','»
+               «zustand.name»
+            «ENDFOR»
         }
     '''
     
@@ -62,12 +62,12 @@ class RegelspracheGenerator implements IGenerator {
                     String[] split = command.split(" ");
                     «FOR geraet : regeln.map[wenn.geraet]»
                         if (split[0].equals("«geraet.name»")) {
-                        «FOR zustand : geraet.zustaende»
-                            if (split[1].equals("«zustand.name»")) {
-                                trigger(«geraet.name».«zustand.name»);
-                            } else 
+                            «FOR zustand : geraet.zustaende»
+                                if (split[1].equals("«zustand.name»")) {
+                                    trigger(«geraet.name».«zustand.name»);
+                                } else 
                             «ENDFOR»
-                                {
+                            {
                                 System.err.println("Der Zustand "+split[1]+" ist für das Gerät "+split[0]+" nicht definiert.");
                             }
                         }
@@ -77,7 +77,7 @@ class RegelspracheGenerator implements IGenerator {
             }
         
             protected void trigger(Enum<?> event) {
-            	System.out.println("Signal '"+event.getClass().getSimpleName()+" "+event+"' eingegangen.");
+                System.out.println("Signal '"+event.getClass().getSimpleName()+" "+event+"' eingegangen.");
                 «FOR regel : regeln»
                     if (event == «regel.wenn.geraet.name».«regel.wenn.name») {
                         trigger(«regel.dann.geraet.name».«regel.dann.name»);
@@ -89,6 +89,6 @@ class RegelspracheGenerator implements IGenerator {
     '''
     
     def getGeraet(Zustand zustand) {
-    	zustand.eContainer as Geraet
+        zustand.eContainer as Geraet
     }
 }
