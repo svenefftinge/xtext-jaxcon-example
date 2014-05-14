@@ -1,10 +1,8 @@
 package mein.heim;
 
-import java.util.Calendar;
 import java.util.Scanner;
 import mein.heim.Fenster;
 import mein.heim.Heizung;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @SuppressWarnings("all")
 public class MeineRegelMaschine {
@@ -59,15 +57,8 @@ public class MeineRegelMaschine {
     }
   }
   
-  public Enum<?> dann_0() {
-    Calendar _instance = Calendar.getInstance();
-    final int month = _instance.get(Calendar.MONTH);
-    if (((month > 3) && (month < 8))) {
-      InputOutput.<String>println("Was? es ist Sommer!");
-      return Heizung.aus;
-    } else {
-      return Fenster.zu;
-    }
+  public Fenster dann_0() {
+    return Fenster.zu;
   }
   
   public Heizung dann_1() {

@@ -1,10 +1,2 @@
-Wenn Heizung.an dann {
-	val month =  java.util.Calendar.instance.get(java.util.Calendar.MONTH)
-	if (month > 3 && month < 8) {
-		println("Was? es ist Sommer!")
-		return Heizung.aus
-	} else {
-		return Fenster.zu
-	}
-}
+Wenn Heizung.an dann Fenster.zu
 Wenn Fenster.auf dann Heizung.aus
